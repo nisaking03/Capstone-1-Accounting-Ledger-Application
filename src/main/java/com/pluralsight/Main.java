@@ -21,11 +21,14 @@ public class Main {
 
         while(true){
             switch (mainMenuOptions) {
-            case 'D': //go to deposit
+            case 'D':
+                addDeposit();//go to deposit
                 break;
-            case 'P': //go make payment
+            case 'P':
+                makePayment();//go make payment
                 break;
-            case 'L': //go to ledger screen
+            case 'L':
+                goToLedger();//go to ledger screen
                 break;
             case 'X': //exit
                 return;
@@ -40,13 +43,13 @@ public class Main {
 }
 
     private static void addDeposit() {
-
+        System.out.println("");
     }
     private static void makePayment() {
-
+        System.out.println("");
     }
     private static void goToLedger() {
-
+        System.out.println("");
     }
 
 
@@ -65,14 +68,14 @@ public class Main {
             while((lineFromString = bufferedReader.readLine()) !=null){
                 String[] part = lineFromString.split("\\|");
                 String date = part[0];
-                String time = part[1];
+                String time part[1];
                 String description = part[2];
                 String vendor = part[3];
                 double amount = Double.parseDouble(part[4]);
 
                 Transactions t = new Transactions(date, time, description, vendor, amount);
                 transaction.add(t);
-            }//date|time|description|vendor|amount
+            }//todo Don't forget about "t" variable when you do ledger
 
         }
         catch (Exception e){
@@ -84,19 +87,11 @@ public class Main {
     }
 
 
-
-
-
-
-    //todo I will need at ("Home Screen")
-    //(May be a Class/Method) //Will need Scanner
-
     /*Will contain:todo D) Add Deposit - prompt user for the deposit
                     information and save it to the csv file (" transactions.csv ")*/
     /*Will contain: todo P) Make Payment (Debit) - prompt user for the debit
                      information and save it to the csv file (" transactions.csv ")*/
     /*Will contain: todo L) Ledger - display the ledger screen*/
-    /*Will contain: todo X) Exit - exit the application*/
 
     /* todo This will be (" transactions.csv ") format */
 

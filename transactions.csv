@@ -1,7 +1,3 @@
-   /* todo This will be (" transactions.csv ") format */
-    //Will need Date,Time,Buffer,Reader
-    //date|time|description|vendor|amount
-
 2023-01-02|09:02:15|Coffee|Starbucks|-4.75
 2023-01-03|18:20:40|Groceries - weekly|Whole Foods Market|-78.42
 2023-01-05|14:12:05|Electricity bill Jan|Duke Energy|-92.13
