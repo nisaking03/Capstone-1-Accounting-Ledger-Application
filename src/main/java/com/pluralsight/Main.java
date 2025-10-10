@@ -2,6 +2,8 @@ package com.pluralsight;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Main {
@@ -9,7 +11,6 @@ public class Main {
     public static ArrayList<Transactions> transaction = getTransactionFromFile();
 
     public static void main(String[]args){
-        char mainMenuOptions;
         String mainMenu = "--------------------------------------------\n" +
             "Home Screen\n" +
             "D) Add Deposit\n" +
@@ -20,7 +21,12 @@ public class Main {
             "--------------------------------------------";
 
         while(true){
-            switch (mainMenuOptions) {
+            System.out.print(mainMenu);
+            char command;
+
+            command = ConsoleHelper.promptForChar("Enter your command");
+
+            switch (command) {
             case 'D':
                 addDeposit();//go to deposit
                 break;
@@ -67,8 +73,8 @@ public class Main {
 
             while((lineFromString = bufferedReader.readLine()) !=null){
                 String[] part = lineFromString.split("\\|");
-                String date = part[0];
-                String time part[1];
+                LocalDate date = LocalDate.parse(part[0]);
+                LocalTime time = LocalTime.parse(part[1]);
                 String description = part[2];
                 String vendor = part[3];
                 double amount = Double.parseDouble(part[4]);

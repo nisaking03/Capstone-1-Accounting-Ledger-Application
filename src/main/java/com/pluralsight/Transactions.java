@@ -1,7 +1,6 @@
 package com.pluralsight;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.*;
 
 //I looked at the SearchInventory repository on GitHub to guide me on this!
 public class Transactions {
