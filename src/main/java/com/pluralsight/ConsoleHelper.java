@@ -12,7 +12,7 @@ private static Scanner scanner = new Scanner(System.in);
     }
 
     public static int promptForInt(String prompt) {
-        System.out.println(prompt + ": ");
+        System.out.print(prompt + ": ");
         int result = scanner.nextInt();
         scanner.nextLine();
         return result;
