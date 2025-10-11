@@ -26,7 +26,7 @@ private static Scanner scanner = new Scanner(System.in);
     }
 
     public static char promptForChar(String prompt) {
-        System.out.println(prompt + ": ");
+        System.out.print(prompt + ": ");
         char result = scanner.next().toUpperCase().charAt(0);
         scanner.nextLine();
         return result;
