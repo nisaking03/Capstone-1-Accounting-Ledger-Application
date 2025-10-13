@@ -5,9 +5,12 @@ import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
+
+    public static ArrayList<Transactions> transaction = getTransactionFromFile();
 
     public static void main(String[] args) {
         String mainMenu = "--------------------------------------------\n" +
@@ -50,33 +53,83 @@ public class Main {
     private static void addDeposit() {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("State what this deposit is for: ");
+        String description = scanner.next();
 
-        System.out.println("Enter deposit amount: \n");
-        scanner.next();
+        System.out.print("Please state the place where this deposit is coming from: ");
+        String vendor = scanner.next();
 
-        System.out.println("State what this transaction is for? \n");
-        scanner.next();
+        System.out.print("Enter deposit amount: ");
+        Double amount = scanner.nextDouble();
 
-        System.out.println("Please state the place where this deposit is coming from: \n");
-        scanner.next();
-    }       //todo Make it to where time uses time now for info
-                                                 //todo Needs to send data back to (transaction.csv)
-    private static void makePayment() {
+        //Created an object so that whatever the user puts in will use this!
+        Transactions transactionObject = new Transactions(
+                LocalDate.now(),
+                LocalTime.now(),
+                description,
+                vendor,
+                amount);
+    } //todo fix this to add to file
+
+    private static void makePayment(){
         Scanner scanner = new Scanner(System.in);
 
+        System.out.print("State what this payment is for: ");
+        String description = scanner.next();
 
-        System.out.println("Enter your payment amount: \n");
+        System.out.print("Please state where this payment is going: ");
+        String vendor = scanner.next();
         scanner.next();
 
-        System.out.println("State what this transaction is for: \n");
-        scanner.next();
+        System.out.print("Enter your payment amount: ");
+        //This will make sure that the money will show it's negative (aka losing money)
+        Double amount = scanner.nextDouble() * -1;
 
-        System.out.println("Please state where this payment is going: \n");
-        scanner.next();
-    }      //todo Make it to where time uses time now for info
-                                                 //todo Needs to send data back to (transaction.csv)
+        //Created an object so that whatever the user puts in will use this!
+        Transactions t = new Transactions(
+                LocalDate.now(),
+                LocalTime.now(),
+                description,
+                vendor,
+                amount);
 
-    private static void goToLedger() {
+        transaction.add(t);
+        return transaction;
+
+    } //todo fix this to add to file
+
+//    private static ArrayList<Transactions> saveTransactionsToFile(Transactions t){
+//
+//    } //todo start this
+
+    private static ArrayList<Transactions> getTransactionFromFile () {
+        ArrayList<Transactions> transaction = new ArrayList<Transactions>();
+        try {
+            FileReader fileReader = new FileReader("transactions.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String lineFromString;
+
+            while ((lineFromString = bufferedReader.readLine()) != null) {
+                String[] part = lineFromString.split("\\|");
+                LocalDate date = LocalDate.parse(part[0]);
+                LocalTime time = LocalTime.parse(part[1]);
+                String description = part[2];
+                String vendor = part[3];
+                double amount = Double.parseDouble(part[4]);
+
+                Transactions t = new Transactions(date, time, description, vendor, amount);
+                transaction.add(t);
+            }//todo Don't forget about "t" variable when you do ledger
+
+        } catch (Exception e) {
+            System.out.println("There was a problem, try again!");
+        }
+
+        return transaction;
+    }
+
+    public static void goToLedger() {
         String ledgerMenu = "--------------------------------------------\n" +
                 "⋆｡ﾟ☁｡⋆☾｡ Ledger Screen ⋆｡ﾟ☁｡⋆｡☾\n" +
                 "A) All \n" +
@@ -113,43 +166,23 @@ public class Main {
         }
     }
 
-    private static ArrayList<Transactions> getTransactionFromFile () {
-            ArrayList<Transactions> transaction = new ArrayList<Transactions>();
-            try {
-                FileReader fileReader = new FileReader("transactions.csv");
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-                String lineFromString;
-
-                while ((lineFromString = bufferedReader.readLine()) != null) {
-                    String[] part = lineFromString.split("\\|");
-                    LocalDate date = LocalDate.parse(part[0]);
-                    LocalTime time = LocalTime.parse(part[1]);
-                    String description = part[2];
-                    String vendor = part[3];
-                    double amount = Double.parseDouble(part[4]);
-
-                    Transactions t = new Transactions(date, time, description, vendor, amount);
-                    transaction.add(t);
-                }//todo Don't forget about "t" variable when you do ledger
-
-            } catch (Exception e) {
-                System.out.println("There was a problem, try again!");
-        }
-
-            return transaction;
-    }
-    public static ArrayList<Transactions> transaction = getTransactionFromFile();
 
     private static void viewAllLedger(){
-    }        //todo Will show all transactions
+        System.out.println("Showing all transactions:");
+
+        for(Transactions t : transaction){
+            System.out.println(t);
+        }
+
+        System.out.println();
+    }
     private static void viewDeposits (){
     }        //todo Will only show money put into account (positive numbers)
     private static void viewPayments (){
     }        //todo Will only show money taken out (negative numbers)
 
 
-    private static void viewReports(){
+    public static void viewReports(){
         String ledgerMenu = "--------------------------------------------\n" +
                 "⋆｡ﾟ☁｡⋆☾｡ Reports Screen ⋆｡ﾟ☁｡⋆｡☾\n" +
                 "1) Month To Date \n" +

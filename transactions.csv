@@ -1,72 +1,3 @@
-2023-01-02|09:02:15|Coffee|Starbucks|-4.75
-2023-01-03|18:20:40|Groceries - weekly|Whole Foods Market|-78.42
-2023-01-05|14:12:05|Electricity bill Jan|Duke Energy|-92.13
-2023-01-07|08:00:00|Gym membership (monthly)|YMCA of Greater Charlotte|-39.00
-2023-01-10|11:30:22|Invoice 1001 paid|Joe|1500.00
-2023-01-15|16:45:30|Dinner - anniversary|The Fig Tree Restaurant|-86.50
-2023-01-20|13:10:55|Online subscription|Spotify|-12.99
-2023-01-25|09:15:00|ATM withdrawal|Wells Fargo ATM|-120.00
-2023-01-28|08:30:00|Paycheck (Jan 15-28)|Acme Corp|3000.00
-2023-01-31|07:50:12|Rent (Feb)|Landlord|-1500.00
-2023-02-01|12:05:45|Groceries|Trader Joe's|-65.20
-2023-02-02|19:22:03|Ride|Uber|-18.40
-2023-02-05|09:00:00|Refund - returned shoes|Shoe Warehouse Charlotte|45.00
-2023-02-07|15:40:10|Water bill Jan|Charlotte Water|-34.67
-2023-02-10|13:05:00|Invoice 1002 paid|Maya|850.00
-2023-02-14|20:10:18|Valentine's bouquet|Charlotte Flower Market|-42.00
-2023-02-15|08:00:00|Gym membership (monthly)|YMCA of Greater Charlotte|-39.00
-2023-02-15|17:20:00|Paycheck (Feb 1-15)|Acme Corp|1500.00
-2023-02-20|10:30:00|Cloud storage|Dropbox|-9.99
-2023-02-24|11:45:50|Groceries - weekly|Whole Foods Market|-82.75
-2023-02-28|07:55:00|Paycheck (Feb 16-28)|Acme Corp|1500.00
-2023-03-01|08:00:00|Rent (Mar)|Landlord|-1500.00
-2023-03-03|14:30:05|Coffee meeting|Not Just Coffee|-7.20
-2023-03-05|09:10:00|Internet bill Feb|Spectrum|-59.99
-2023-03-07|18:00:00|Restaurant - team dinner|The Capital Grille|-210.40
-2023-03-10|12:40:00|Invoice 1003 paid|Liam|600.00
-2023-03-12|16:05:35|Groceries|Harris Teeter|-98.33
-2023-03-15|08:00:00|Gym membership (monthly)|YMCA of Greater Charlotte|-39.00
-2023-03-15|17:10:00|Paycheck (Mar 1-15)|Acme Corp|1500.00
-2023-03-17|09:20:00|Gas fill-up|Shell|-46.88
-2023-03-21|22:15:00|Movie tickets|AMC Carolina Pavilion|-27.50
-2023-03-24|10:00:00|Streaming|Netflix|-12.99
-2023-03-28|07:55:00|Paycheck (Mar 16-31)|Acme Corp|1500.00
-2023-04-01|09:00:00|Rent (Apr)|Landlord|-1500.00
-2023-04-03|13:25:00|Groceries|Whole Foods Market|-74.28
-2023-04-05|11:00:00|Electricity bill Mar|Duke Energy|-88.90
-2023-04-07|15:40:00|Car maintenance|Charlotte Auto Service|-320.00
-2023-04-10|10:05:00|Invoice 1004 paid|Nina|400.00
-2023-04-12|08:00:00|Subscription - fitness app|ClassPass|-7.99
-2023-04-15|10:13:25|Ergonomic keyboard|Best Buy (Charlotte)|-89.50
-2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.00
-2023-04-15|16:00:00|Paycheck (Apr 1-15)|Acme Corp|1500.00
-2023-04-18|19:30:00|Dinner out|Sushi-San Charlotte|-64.75
-2023-04-20|08:30:00|Groceries|Trader Joe's|-69.10
-2023-04-25|09:00:00|ATM withdrawal|Bank of America ATM|-200.00
-2023-04-28|08:00:00|Paycheck (Apr 16-30)|Acme Corp|1500.00
-2023-05-01|09:10:00|Rent (May)|Landlord|-1500.00
-2023-05-03|12:00:00|Groceries|Harris Teeter|-92.45
-2023-05-05|14:20:00|Mother's Day flowers|Charlotte Flower Market|-38.20
-2023-05-07|09:15:00|Water bill Apr|Charlotte Water|-36.12
-2023-05-10|10:30:00|Invoice 1005 paid|Studio X|1200.00
-2023-05-12|08:00:00|Gym membership (monthly)|YMCA of Greater Charlotte|-39.00
-2023-05-15|16:00:00|Paycheck (May 1-15)|Acme Corp|1500.00
-2023-05-18|11:00:00|Gas|Chevron|-54.60
-2023-05-20|09:40:00|Cloud storage|Dropbox|-9.99
-2023-05-24|18:05:00|Concert tickets|Live Nation|-182.00
-2023-05-30|08:00:00|Paycheck (May 16-31)|Acme Corp|1500.00
-2023-06-01|09:00:00|Rent (Jun)|Landlord|-1500.00
-2023-06-04|13:55:00|Groceries|Whole Foods Market|-81.60
-2023-06-06|10:20:00|Internet bill May|Spectrum|-59.99
-2023-06-10|09:00:00|Invoice 1006 paid|Oliver|720.00
-2023-06-12|08:00:00|Streaming|Netflix|-12.99
-2023-06-15|08:00:00|Gym membership (monthly)|YMCA of Greater Charlotte|-39.00
-2023-06-15|17:00:00|Paycheck (Jun 1-15)|Acme Corp|1500.00
-2023-06-18|14:40:00|Furniture - sofa (partial)|Ashley HomeStore (Charlotte)|-450.00
-2023-06-22|19:12:00|Dinner|The Green Table|-58.20
-2023-06-24|10:05:00|Groceries|Trader Joe's|-76.33
-2023-06-30|07:50:00|Paycheck (Jun 16-30)|Acme Corp|1500.00
-
 2024-01-02|09:02:15|Coffee|Starbucks|-4.75
 2024-01-03|18:20:40|Groceries - weekly|Whole Foods Market|-78.42
 2024-01-05|14:12:05|Electricity bill Jan|Duke Energy|-92.13
@@ -135,7 +66,6 @@
 2024-06-22|19:12:00|Dinner|The Green Table|-58.20
 2024-06-24|10:05:00|Groceries|Trader Joe's|-76.33
 2024-06-30|07:50:00|Paycheck (Jun 16-30)|Acme Corp|1500.00
-
 2025-01-02|09:02:15|Coffee|Starbucks|-4.75
 2025-01-03|18:20:40|Groceries - weekly|Whole Foods Market|-78.42
 2025-01-05|14:12:05|Electricity bill Jan|Duke Energy|-92.13
