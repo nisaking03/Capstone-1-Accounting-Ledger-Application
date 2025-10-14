@@ -1,6 +1,7 @@
 package com.pluralsight;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 //I looked at the SearchInventory repository on GitHub to guide me on this!
 public class Transactions {
@@ -35,6 +36,7 @@ public class Transactions {
     @Override
     public String toString(){
         //I found a simpler way to write this instead of using something like: ("#%-10d %-18s %10.2f", id,name,price);
-        return transactionDate + "|" + transactionTime + "|" + description + "|" + vendor + "|" + amount;
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        return transactionDate + "|" + transactionTime.format(timeFormatter) + "|" + description + "|" + vendor + "|" + amount;
     }
 }

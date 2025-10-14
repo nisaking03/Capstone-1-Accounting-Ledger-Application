@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -55,10 +56,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("State what this deposit is for: ");
-        String description = scanner.next();
+        String description = scanner.nextLine();
 
         System.out.print("Please state the place where this deposit is coming from: ");
-        String vendor = scanner.next();
+        String vendor = scanner.nextLine();
 
         System.out.print("Enter deposit amount: ");
         Double amount = scanner.nextDouble();
@@ -71,12 +72,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("State what this payment is for: ");
-        String description = scanner.next();
-        scanner.nextLine();
+        String description = scanner.nextLine();
 
         System.out.print("Please state where this payment is going: ");
-        String vendor = scanner.next();
-        scanner.nextLine();
+        String vendor = scanner.nextLine();
 
         System.out.print("Enter your payment amount: ");
         //This will make sure that the money will show it's negative (aka losing money)
@@ -87,13 +86,15 @@ public class Main {
 
     }
 
-    public static void saveTransactionFromUser(String description, String vendor, Double amount){
+    private static void saveTransactionFromUser(String description, String vendor, Double amount){
         try {
             FileWriter fileWriter = new FileWriter("transactions.csv",true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             Transactions t = new Transactions(LocalDate.now(), LocalTime.now(), description, vendor, amount);
             transactionHistory.add(t);
+
+            bufferedWriter.newLine();
 
             bufferedWriter.write(t.getDate() + "|"
                     + t.getTime() + "|"
@@ -137,7 +138,7 @@ public class Main {
     public static void goToLedger() {
         String ledgerMenu = "--------------------------------------------\n" +
                 "⋆｡ﾟ☁｡⋆☾｡ Ledger Screen ⋆｡ﾟ☁｡⋆｡☾\n" +
-                "A) All \n" +
+                "A) All Entries\n" +
                 "D) Deposits \n" +
                 "P) Payments \n" +
                 "R) Reports \n" +
@@ -182,12 +183,21 @@ public class Main {
         System.out.println();
     }
     private static void viewDeposits (){
-        System.out.println("Showing all deposits");
-
-
-    }        //todo Will only show money put into account (positive numbers)
+        System.out.println("Showing all deposits:");
+        for (Transactions t : transactionHistory) {
+            if (t.getAmount() >= 0) {
+                System.out.println(t);
+            }
+        }
+    }
     private static void viewPayments (){
-    }        //todo Will only show money taken out (negative numbers)
+        System.out.println("Showing all payments:");
+        for (Transactions t : transactionHistory){
+            if (t.getAmount() <= 0){
+                System.out.println(t);
+            }
+        }
+    }
 
 
     public static void viewReports(){
