@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -64,64 +63,49 @@ public class Main {
         System.out.print("Enter deposit amount: ");
         Double amount = scanner.nextDouble();
 
-        //Created an object so that whatever the user puts in will use this!
-        Transactions transactionObject = new Transactions(
-                LocalDate.now(),
-                LocalTime.now(),
-                description,
-                vendor,
-                amount);
-    } //todo fix this to add to file
+        //Calling the method to save info to file
+        saveTransactionFromUser(description, vendor, amount);
+    }
 
     private static void makePayment(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("State what this payment is for: ");
         String description = scanner.next();
+        scanner.nextLine();
 
         System.out.print("Please state where this payment is going: ");
         String vendor = scanner.next();
-        scanner.next();
+        scanner.nextLine();
 
         System.out.print("Enter your payment amount: ");
         //This will make sure that the money will show it's negative (aka losing money)
         Double amount = scanner.nextDouble() * -1;
 
-        //Created an object so that whatever the user puts in will use this!
-        Transactions t = new Transactions(
-                LocalDate.now(),
-                LocalTime.now(),
-                description,
-                vendor,
-                amount);
+        //Calling the method to save info to file
+        saveTransactionFromUser(description, vendor, amount);
 
-        transactionHistory.add(t);
-        return transactionHistory;
+    }
 
-    } //todo fix this to add to file
-
-    public static ArrayList<Transactions> getTransactionFromCode(){
-        ArrayList<Transactions> transactionHistory = new ArrayList<Transactions>();
+    public static void saveTransactionFromUser(String description, String vendor, Double amount){
         try {
-            FileWriter fileWriter = new FileWriter("transactions.cvs",true);
+            FileWriter fileWriter = new FileWriter("transactions.csv",true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
 
             Transactions t = new Transactions(LocalDate.now(), LocalTime.now(), description, vendor, amount);
             transactionHistory.add(t);
 
-            bufferedWriter.write(t.getDate());
+            bufferedWriter.write(t.getDate() + "|"
+                    + t.getTime() + "|"
+                    + t.getDescription() + "|"
+                    + t.getVendor() + "|"
+                    + t.getAmount());
+            bufferedWriter.close();
 
-
-
-
-        } catch (Exception e){}
-        return  transactionHistory;
+        } catch (Exception e){
+            System.out.println("There was a problem, try again!");
+        }
     }
-
-//    private static ArrayList<Transactions> saveTransactionsToFile(Transactions t){
-//
-//    } //todo start this
 
     private static ArrayList<Transactions> getTransactionFromFile () {
         ArrayList<Transactions> transactionHistory = new ArrayList<Transactions>();
@@ -198,6 +182,9 @@ public class Main {
         System.out.println();
     }
     private static void viewDeposits (){
+        System.out.println("Showing all deposits");
+
+
     }        //todo Will only show money put into account (positive numbers)
     private static void viewPayments (){
     }        //todo Will only show money taken out (negative numbers)
