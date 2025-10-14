@@ -18,8 +18,6 @@ private static Scanner scanner = new Scanner(System.in);
         return result;
     }
 
-
-
     public static char promptForChar(String prompt) {
         System.out.print(prompt + ": ");
         char result = scanner.next().toUpperCase().charAt(0);
@@ -27,11 +25,11 @@ private static Scanner scanner = new Scanner(System.in);
         return result;
     }
 
-//    public static double promptForDouble(String prompt) {
-//        System.out.println(prompt + ": ");
-//        double result = scanner.nextDouble();
-//        scanner.nextLine();
-//        return result;
-//    }
+    public static double promptForDouble(String prompt) {
+        System.out.println(prompt + ": ");
+        double result = scanner.nextDouble();
+        scanner.nextLine();
+        return result;
+    }
 
 }

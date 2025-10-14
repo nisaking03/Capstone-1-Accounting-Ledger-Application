@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-//I looked at the SearchInventory repository on GitHub to guide me on this!
+//Giving the Transactions objects it's attributes
 public class Transactions {
     private LocalDate transactionDate;
     private LocalTime transactionTime;
@@ -11,6 +11,7 @@ public class Transactions {
     private String vendor;
     private Double amount;
 
+    //All getters for the Transaction object
     public Transactions(LocalDate paymentDate,LocalTime paymentTime,String description,String vendor,Double amount){
         this.transactionDate = paymentDate;
         this.transactionTime = paymentTime;
