@@ -17,10 +17,10 @@ public class Transactions {
         this.vendor = vendor;
         this.amount = amount;
     }
-    public LocalDate getTransactionDate(){
+    public LocalDate getDate(){
         return transactionDate;
     }
-    public LocalTime getTransactionTime(){
+    public LocalTime getTime(){
         return transactionTime;
     }
     public String getDescription(){

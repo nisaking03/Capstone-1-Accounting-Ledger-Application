@@ -1,7 +1,9 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static ArrayList<Transactions> transaction = getTransactionFromFile();
+    public static ArrayList<Transactions> transactionHistory = getTransactionFromFile();
 
     public static void main(String[] args) {
         String mainMenu = "--------------------------------------------\n" +
@@ -93,17 +95,36 @@ public class Main {
                 vendor,
                 amount);
 
-        transaction.add(t);
-        return transaction;
+        transactionHistory.add(t);
+        return transactionHistory;
 
     } //todo fix this to add to file
+
+    public static ArrayList<Transactions> getTransactionFromCode(){
+        ArrayList<Transactions> transactionHistory = new ArrayList<Transactions>();
+        try {
+            FileWriter fileWriter = new FileWriter("transactions.cvs",true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+
+            Transactions t = new Transactions(LocalDate.now(), LocalTime.now(), description, vendor, amount);
+            transactionHistory.add(t);
+
+            bufferedWriter.write(t.getDate());
+
+
+
+
+        } catch (Exception e){}
+        return  transactionHistory;
+    }
 
 //    private static ArrayList<Transactions> saveTransactionsToFile(Transactions t){
 //
 //    } //todo start this
 
     private static ArrayList<Transactions> getTransactionFromFile () {
-        ArrayList<Transactions> transaction = new ArrayList<Transactions>();
+        ArrayList<Transactions> transactionHistory = new ArrayList<Transactions>();
         try {
             FileReader fileReader = new FileReader("transactions.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -119,14 +140,14 @@ public class Main {
                 double amount = Double.parseDouble(part[4]);
 
                 Transactions t = new Transactions(date, time, description, vendor, amount);
-                transaction.add(t);
+                transactionHistory.add(t);
             }//todo Don't forget about "t" variable when you do ledger
 
         } catch (Exception e) {
             System.out.println("There was a problem, try again!");
         }
 
-        return transaction;
+        return transactionHistory;
     }
 
     public static void goToLedger() {
@@ -170,7 +191,7 @@ public class Main {
     private static void viewAllLedger(){
         System.out.println("Showing all transactions:");
 
-        for(Transactions t : transaction){
+        for(Transactions t : transactionHistory){
             System.out.println(t);
         }
 
