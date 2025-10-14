@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7818634-b398-49c3-a5b3-cc4723cb303f" name="Changes" comment="" />
+    <list default="true" id="f7818634-b398-49c3-a5b3-cc4723cb303f" name="Changes" comment="Small progress" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +45,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
@@ -66,7 +66,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760121809542</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Small progress">
+      <option name="closed" value="true" />
+      <created>1760376054266</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760376054266</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -74,6 +82,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Still trying" />
-    <option name="LAST_COMMIT_MESSAGE" value="Still trying" />
+    <MESSAGE value="Small progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small progress" />
   </component>
 </project>
