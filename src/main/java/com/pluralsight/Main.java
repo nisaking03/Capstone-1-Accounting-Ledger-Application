@@ -17,19 +17,20 @@ public class Main {
     //Main menu and choices
     public static void main(String[] args) {
         String mainMenu = "--------------------------------------------\n" +
-                "⋆｡ﾟ☁｡⋆☾｡ Home Screen ⋆｡ﾟ☁｡⋆｡☾\n" +
+                "⋆｡ﾟ☁｡⋆☾｡ The Enchanted Counter ⋆｡ﾟ☁｡⋆｡☾\n" +
                 "D) Add Deposit\n" +
                 "P) Make Payment\n" +
-                "L) Ledger\n" +
+                "T) Treasury of Trades\n" +
                 "X) Exit\n" +
-                "Select where you would like to be directed.\n" +
-                "--------------------------------------------\n";
+                "--------------------------------------------\n" +
+                "You push open the wooden door of a cozy little shop...\n" +
+                "A bell jingles, and a fairy clerk flutters over with a smile.\n";
 
         while (true) {
             System.out.print(mainMenu);
             char command;
 
-            command = ConsoleHelper.promptForChar("Enter your command");
+            command = ConsoleHelper.promptForChar("'What service do you seek today traveler?'\n" + "You");
 
             switch (command) {
                 case 'D':
@@ -38,13 +39,13 @@ public class Main {
                 case 'P':
                     makePayment();//go make payment
                     break;
-                case 'L':
+                case 'T':
                     goToLedger();//go to ledger screen
                     break;
                 case 'X': //exit
                     return;
                 default:
-                    System.out.println("INVALID COMMAND!! Please select a valid option.");
+                    System.out.println("'We don't have that service here...'");
                     break;
 
             }
@@ -54,16 +55,15 @@ public class Main {
     }
 
     private static void addDeposit() {
-        Scanner scanner = new Scanner(System.in);
+        String description = ConsoleHelper.promptForString
+        ("'Ah, adding to your treasures, are we?'\n" +
+        "'Please describe this fortune's purpose.'\n" + "You");
 
-        System.out.print("State what this deposit is for: ");
-        String description = scanner.nextLine();
+        String vendor = ConsoleHelper.promptForString
+        ("'From which realm, shop, or kind soul does this gold arrive?'\n" + "You");
 
-        System.out.print("Please state the place where this deposit is coming from: ");
-        String vendor = scanner.nextLine();
-
-        System.out.print("Enter deposit amount: ");
-        Double amount = scanner.nextDouble();
+        Double amount = ConsoleHelper.promptForDouble
+        ("'And how many shimmering coins shall we add to your pouch?'\n" + "You");
 
         //Calling the method to save info to file
         saveTransactionFromUser(description, vendor, amount);
@@ -71,13 +71,14 @@ public class Main {
     private static void makePayment(){
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("State what this payment is for: ");
-        String description = scanner.nextLine();
+        String description = ConsoleHelper.promptForString
+        ("'Ah, sending some treasure out to a lucky soul I see!\n" +
+        "'Please describe this fortune's purpose.'\n" + "You");
 
-        System.out.print("Please state where this payment is going: ");
-        String vendor = scanner.nextLine();
+        String vendor = ConsoleHelper.promptForString
+        ("'To which realm, shop, or kind soul does this gold go?'\n" + "You");
 
-        System.out.print("Enter your payment amount: ");
+        System.out.print("'And how many shimmering coins shall we add to your pouch?'\n" + "You");
         //This will make sure that the money will show it's negative (aka losing money)
         Double amount = scanner.nextDouble() * -1;
 
@@ -138,18 +139,19 @@ public class Main {
     //Ledger menu and choices
     public static void goToLedger() {
         String ledgerMenu = "--------------------------------------------\n" +
-                "⋆｡ﾟ☁｡⋆☾｡ Ledger Screen ⋆｡ﾟ☁｡⋆｡☾\n" +
+                "⋆｡ﾟ☁｡⋆☾｡ Treasury of Trades ⋆｡ﾟ☁｡⋆｡☾\n" +
                 "A) All Entries\n" +
                 "D) Deposits \n" +
                 "P) Payments \n" +
-                "R) Reports \n" +
-                "H) Back to Home \n" +
+                "R) Records Chamber \n" +
+                "H) Back - to (Home) The Enchanted Counter \n" +
                 "--------------------------------------------\n";
         while (true) {
             System.out.print(ledgerMenu);
             char command;
 
-            command = ConsoleHelper.promptForChar("Enter your command");
+            command = ConsoleHelper.promptForChar("Your wish is the fairy's command - which entries shall we reveal?\n"
+                    + "You");
 
             switch (command) {
                 case 'A':
@@ -167,14 +169,14 @@ public class Main {
                 case 'H':
                     return;
                 default:
-                    System.out.println("INVALID COMMAND!! Please select a valid option.");
+                    System.out.println("That isn't something I can do...");
                     break;
             }
         }
     }
 
     private static void viewAllLedger(){
-        System.out.println("Showing all transactions:");
+        System.out.println("Every magical entry glows before your eyes - behold your transactions!");
 
         for(Transactions t : transactionHistory){
             System.out.println(t);
@@ -183,15 +185,17 @@ public class Main {
         System.out.println();
     }
     private static void viewDeposits (){
-        System.out.println("Showing all deposits:");
+        System.out.println("The fairy sprinkles a little magic dust...\n" +
+                "'Here are all the treasures you've safely stored!");
         for (Transactions t : transactionHistory) {
             if (t.getAmount() >= 0) {
-                System.out.println(t);
+                System.out.println(t + "'Such a fine collection of riches, traveler!'");
             }
         }
     }
     private static void viewPayments (){
-        System.out.println("Showing all payments:");
+        System.out.println("The fairy waves her wand...\n" +
+                "'Here are all of the coins you've sent in generosity!'");
         for (Transactions t : transactionHistory){
             if (t.getAmount() <= 0){
                 System.out.println(t);
@@ -202,19 +206,19 @@ public class Main {
     //Reports menu and choices
     public static void viewReports(){
         String ledgerMenu = "--------------------------------------------\n" +
-                "⋆｡ﾟ☁｡⋆☾｡ Reports Screen ⋆｡ﾟ☁｡⋆｡☾\n" +
+                "⋆｡ﾟ☁｡⋆☾｡ Records Chamber ⋆｡ﾟ☁｡⋆｡☾\n" +
                 "1) Month To Date \n" +
                 "2) Previous Month \n" +
                 "3) Year To Date \n" +
                 "4) Previous Year \n" +
-                "5) Search by Vendor \n" +
-                "0) Back - go back to Ledger \n" +
+                "5) Seek Trades by Merchant Name \n" +
+                "0) Back - to Treasury of Trades \n" +
                 "--------------------------------------------\n";
         while (true) {
             System.out.print(ledgerMenu);
             int command;
 
-            command = ConsoleHelper.promptForInt("Enter your command");
+            command = ConsoleHelper.promptForInt("Speak your desire, and the Archives shall shimmer with the results.");
 
             switch (command) {
                 case 1:
@@ -235,7 +239,7 @@ public class Main {
                 case 0: goToLedger();
                     return;
                 default:
-                    System.out.println("INVALID COMMAND!! Please select a valid option.");
+                    System.out.println("I'm not sure what to do with that...");
                     break;
             }
 
@@ -246,7 +250,7 @@ public class Main {
     }
 
     private static void viewMonthToDate(){
-        System.out.println(" Month to date Transaction");
+        System.out.println("The fairy's scroll has revealed every coin and trade from this moon cycle.");
         LocalDate today = LocalDate.now();
         for ( Transactions t: transactionHistory) {
             if (t.getDate().getYear() == today.getYear() &&  // Check if the transaction happened in the current year
@@ -256,7 +260,7 @@ public class Main {
         }
     }      //todo
     private static void viewPreviousMonth(){
-        System.out.println(" Previous Month Transaction");
+        System.out.println("The fairy's scroll has revealed every coin and trade from the last moon cycle.");
         LocalDate today =LocalDate.now();
         LocalDate lastMonth = today.minusMonths(1);
         for ( Transactions t : transactionHistory){
@@ -268,7 +272,7 @@ public class Main {
     }
 
     private static void viewYearToDate(){
-        System.out.println("Year to date transactions");
+        System.out.println("Year to date transactions: ");
         int currentYear = LocalDate.now().getYear();
         for (Transactions transactions : transactionHistory){
             if(transactions.getDate().getYear()== currentYear) {
@@ -277,7 +281,7 @@ public class Main {
         }
     }
     private static void viewPreviousYear(){
-        System.out.println("previous Year");
+        System.out.println("Previous year: ");
         int lastYear = LocalDate.now().getYear() -1;
         for (Transactions transactions : transactionHistory){
             if(transactions.getDate().getYear()== lastYear) {
@@ -287,8 +291,9 @@ public class Main {
 
     }
     private static void searchByVendor(){
-        String vendor = ConsoleHelper.promptForString("Please state a vendor to search:");
-        System.out.println("Transactions for vendor: " + vendor);
+        System.out.println("The fairy clerk flips through the glowing pages...");
+        String vendor = ConsoleHelper.promptForString("'Whose trades shall I reveal today traveler?'\n" + "You");
+        System.out.println("'Here's what I've found for " + vendor + "'");
         boolean isfind = false;
         for (Transactions t: transactionHistory)
         if(t.getVendor().equalsIgnoreCase(vendor)) {
@@ -296,7 +301,8 @@ public class Main {
             isfind = true;
 
            } if(!isfind){
-            System.out.println("Vendor Not Available");
+            System.out.println("The fairy looks down with furrowed eyebrows then back up at you.\n" +
+                    "'It seems that your merchant isn't found here...'");
         }
     }
 }
