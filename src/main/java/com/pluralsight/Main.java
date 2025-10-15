@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -83,7 +82,7 @@ public class Main {
         String vendor = ConsoleHelper.promptForString
         ("'To which realm, shop, or kind soul does this gold go?'\n" + "You");
 
-        System.out.print("'And how many shimmering coins shall we add to your pouch?'\n" + "You");
+        System.out.print("'And how many shimmering coins shall we add to your pouch?'\n" + "You: ");
         //This will make sure that the money will show it's negative (aka losing money)
         Double amount = scanner.nextDouble() * -1;
 
@@ -265,7 +264,7 @@ public class Main {
                 System.out.println(t);    // Print the transaction details if it matches the current year
             }
         }
-    }      //todo
+    }
     private static void viewPreviousMonth(){
         System.out.println("The fairy's scroll has revealed every coin and trade from the last moon cycle.");
         LocalDate today =LocalDate.now();
@@ -277,7 +276,6 @@ public class Main {
             }
         }
     }
-
     private static void viewYearToDate(){
         System.out.println("Every coin and trade from this year sparkles before you - what a treasure trove!");
         int currentYear = LocalDate.now().getYear();
