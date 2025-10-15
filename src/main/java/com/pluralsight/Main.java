@@ -53,9 +53,7 @@ public class Main {
                     break;
 
             }
-
         }
-
     }
 
     private static void addDeposit() {
@@ -92,7 +90,6 @@ public class Main {
 
         //Calling the method to save info to file
         saveTransactionFromUser(description, vendor, amount);
-
     }
 
     //Methods for reading and writing info to transactions.csv
@@ -140,7 +137,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("There was a problem, try again!" + e.getLocalizedMessage());
         }
-
         return transactionHistory;
     }
 
@@ -187,27 +183,31 @@ public class Main {
     private static void viewAllLedger(){
         for(Transactions t : transactionHistory){
             System.out.println(t);
-
-        }System.out.println("Every magical entry glows before your eyes - behold your transactions!");
+        }
+        System.out.println();
+        System.out.println("Every magical entry glows before your eyes - behold your transactions!");
     }
     private static void viewDeposits (){
-        System.out.println("The fairy sprinkles a little magic dust...\n" +
-                "'Here are all the treasures you've safely stored!");
+
         for (Transactions t : transactionHistory) {
             if (t.getAmount() >= 0) {
-                System.out.println(t + "'Such a fine collection of riches, traveler!'");
+                System.out.println(t);
             }
         }
+        System.out.println();
+        System.out.println("The fairy sprinkles a little magic dust...\n" +
+        "'Here are all the treasures you've safely stored! What a fine collection of riches, traveler!'");
     }
     private static void viewPayments (){
 
         for (Transactions t : transactionHistory){
             if (t.getAmount() <= 0){
                 System.out.println(t);
-
-            }System.out.println("The fairy waves her wand...\n" +
-                    "'Here are all of the coins you've sent in generosity!'");
+            }
         }
+        System.out.println();
+        System.out.println("The fairy waves her wand...\n" +
+        "'Here are all of the coins you've sent in generosity!'");
     }
 
     //Reports menu and choices
@@ -251,11 +251,7 @@ public class Main {
                     System.out.println("I'm not sure what to do with that...");
                     break;
             }
-
-
         }
-
-
     }
 
     private static void viewMonthToDate(){
@@ -265,9 +261,10 @@ public class Main {
             if (t.getDate().getYear() == today.getYear() &&  // Check if the transaction happened in the current year
                     t.getDate().getMonth() == today.getMonth()) {
                 System.out.println(t);    // Print the transaction details if it matches the current year
-
-            } System.out.println("The fairy's scroll has revealed every coin and trade from this moon cycle.");
+            }
         }
+        System.out.println();
+        System.out.println("The fairy's scroll has revealed every coin and trade from this moon cycle.");
     }
     private static void viewPreviousMonth(){
 
@@ -277,9 +274,10 @@ public class Main {
             if (t.getDate().getYear() == today.getYear() &&  // Check if the transaction happened in the current year
                     t.getDate().getMonth() == today.getMonth()) {
                 System.out.println(t);    // Print the transaction details if it matches the current year
-
-            } System.out.println("The fairy's scroll has revealed every coin and trade from the last moon cycle.");
+            }
         }
+        System.out.println();
+        System.out.println("The fairy's scroll has revealed every coin and trade from the last moon cycle.");
     }
     private static void viewYearToDate(){
 
@@ -287,8 +285,10 @@ public class Main {
         for (Transactions t : transactionHistory){
             if(t.getDate().getYear()== currentYear) {
                 System.out.println(t);
-            } System.out.println("Every coin and trade from this year sparkles before you - what a treasure trove!");
+            }
         }
+        System.out.println();
+        System.out.println("Every coin and trade from this year sparkles before you - what a treasure trove!");
     }
     private static void viewPreviousYear(){
 
@@ -296,9 +296,10 @@ public class Main {
         for (Transactions t : transactionHistory){
             if(t.getDate().getYear()== lastYear) {
                 System.out.println(t);
-
-            }System.out.println("Every coin and trade from last year sparkles before you - what a treasure trove!");
+            }
         }
+        System.out.println();
+        System.out.println("Every coin and trade from last year sparkles before you - what a treasure trove!");
 
     }
     private static void searchByVendor(){
@@ -306,16 +307,19 @@ public class Main {
         String vendor = ConsoleHelper.promptForString("'Whose trades shall I reveal today traveler?'\n" + "You");
 
         boolean isfind = false;
-        for (Transactions t: transactionHistory)
-        if(t.getVendor().equalsIgnoreCase(vendor)) {
-            System.out.println(t);
+        for (Transactions t: transactionHistory) {
+            if(t.getVendor().equalsIgnoreCase(vendor)) {
+                System.out.println(t);
+                isfind = true;
+            }
+        }
 
+        System.out.println();
+        if(isfind) {
             System.out.println("'Here's what I've found for " + vendor + "'");
-            isfind = true;
-
-           } if(!isfind){
+        } else {
             System.out.println("The fairy looks down with furrowed eyebrows then back up at you.\n" +
-                    "'It seems that your merchant isn't found here...'");
+            "'It seems that your merchant isn't found here...'");
         }
     }
 }
