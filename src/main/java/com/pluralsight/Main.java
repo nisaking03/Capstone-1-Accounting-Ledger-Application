@@ -16,13 +16,18 @@ public class Main {
 
     //Main menu and choices
     public static void main(String[] args) {
-        String mainMenu = "--------------------------------------------\n" +
+        System.out.println(
+                "╭──────────────────────.★..───╮\n" +
+                "  Welcome to Fairy's Treasury\n" +
+                "╰───..★.──────────────────────╯\n");
+        String mainMenu =
+                "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n" +
                 "⋆｡ﾟ☁｡⋆☾｡ The Enchanted Counter ⋆｡ﾟ☁｡⋆｡☾\n" +
-                "D) Add Deposit\n" +
-                "P) Make Payment\n" +
-                "T) Treasury of Trades\n" +
+                "D) Add Treasure Deposit\n" +
+                "P) Make Treasure Payment\n" +
+                "L) Treasury of Trades (Ledger)\n" +
                 "X) Exit\n" +
-                "--------------------------------------------\n" +
+                "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n" +
                 "You push open the wooden door of a cozy little shop...\n" +
                 "A bell jingles, and a fairy clerk flutters over with a smile.\n";
 
@@ -39,7 +44,7 @@ public class Main {
                 case 'P':
                     makePayment();//go make payment
                     break;
-                case 'T':
+                case 'L':
                     goToLedger();//go to ledger screen
                     break;
                 case 'X': //exit
@@ -138,20 +143,21 @@ public class Main {
 
     //Ledger menu and choices
     public static void goToLedger() {
-        String ledgerMenu = "--------------------------------------------\n" +
-                "⋆｡ﾟ☁｡⋆☾｡ Treasury of Trades ⋆｡ﾟ☁｡⋆｡☾\n" +
+        String ledgerMenu =
+                "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n" +
+                "⋆｡ﾟ☁｡⋆☾｡ Treasury of Trades (Ledger)⋆｡ﾟ☁｡⋆｡☾\n" +
                 "A) All Entries\n" +
-                "D) Deposits \n" +
-                "P) Payments \n" +
-                "R) Records Chamber \n" +
+                "D) Treasure Deposits \n" +
+                "P) Treasure Payments \n" +
+                "R) Records Chamber (Reports) \n" +
                 "H) Back - to (Home) The Enchanted Counter \n" +
-                "--------------------------------------------\n";
+                "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n";
         while (true) {
             System.out.print(ledgerMenu);
             char command;
 
-            command = ConsoleHelper.promptForChar("Your wish is the fairy's command - which entries shall we reveal?\n"
-                    + "You");
+            command = ConsoleHelper.promptForChar
+            ("Your wish is the fairy's command - which entries shall we reveal?\n" + "You");
 
             switch (command) {
                 case 'A':
@@ -176,13 +182,12 @@ public class Main {
     }
 
     private static void viewAllLedger(){
-        System.out.println("Every magical entry glows before your eyes - behold your transactions!");
-
         for(Transactions t : transactionHistory){
             System.out.println(t);
         }
-
         System.out.println();
+
+        System.out.println("Every magical entry glows before your eyes - behold your transactions!");
     }
     private static void viewDeposits (){
         System.out.println("The fairy sprinkles a little magic dust...\n" +
@@ -205,20 +210,22 @@ public class Main {
 
     //Reports menu and choices
     public static void viewReports(){
-        String ledgerMenu = "--------------------------------------------\n" +
-                "⋆｡ﾟ☁｡⋆☾｡ Records Chamber ⋆｡ﾟ☁｡⋆｡☾\n" +
+        String ledgerMenu =
+                "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n" +
+                "⋆｡ﾟ☁｡⋆☾｡ Records Chamber (Reports)⋆｡ﾟ☁｡⋆｡☾\n" +
                 "1) Month To Date \n" +
                 "2) Previous Month \n" +
                 "3) Year To Date \n" +
                 "4) Previous Year \n" +
                 "5) Seek Trades by Merchant Name \n" +
-                "0) Back - to Treasury of Trades \n" +
-                "--------------------------------------------\n";
+                "0) Back - to Treasury of Trades (Ledger)\n" +
+                "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n";
         while (true) {
             System.out.print(ledgerMenu);
             int command;
 
-            command = ConsoleHelper.promptForInt("Speak your desire, and the Archives shall shimmer with the results.");
+            command = ConsoleHelper.promptForInt
+            ("Speak your desire, and the Archives shall shimmer with the results.\n" + "You");
 
             switch (command) {
                 case 1:
@@ -272,7 +279,7 @@ public class Main {
     }
 
     private static void viewYearToDate(){
-        System.out.println("Year to date transactions: ");
+        System.out.println("Every coin and trade from this year sparkles before you - what a treasure trove!");
         int currentYear = LocalDate.now().getYear();
         for (Transactions transactions : transactionHistory){
             if(transactions.getDate().getYear()== currentYear) {
@@ -281,7 +288,7 @@ public class Main {
         }
     }
     private static void viewPreviousYear(){
-        System.out.println("Previous year: ");
+        System.out.println("Every coin and trade from last year sparkles before you - what a treasure trove!");
         int lastYear = LocalDate.now().getYear() -1;
         for (Transactions transactions : transactionHistory){
             if(transactions.getDate().getYear()== lastYear) {
