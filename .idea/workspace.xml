@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7818634-b398-49c3-a5b3-cc4723cb303f" name="Changes" comment="Small progress">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="f7818634-b398-49c3-a5b3-cc4723cb303f" name="Changes" comment="Small progress" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,12 +26,12 @@
     &quot;assignee&quot;: &quot;nisaking03&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/nisaking03/Capstone-1-Accounting-Ledger-Application&quot;,
-    &quot;accountId&quot;: &quot;6ea9c8eb-3f29-42e4-9750-ae2d24476634&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/nisaking03/FantasyLedger",
+    "accountId": "6ea9c8eb-3f29-42e4-9750-ae2d24476634"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
