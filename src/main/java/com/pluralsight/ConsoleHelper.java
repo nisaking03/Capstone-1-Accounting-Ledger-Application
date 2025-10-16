@@ -26,7 +26,7 @@ private static Scanner scanner = new Scanner(System.in);
     }
 
     public static double promptForDouble(String prompt) {
-        System.out.println(prompt + ": ");
+        System.out.print(prompt + ": ");
         double result = scanner.nextDouble();
         scanner.nextLine();
         return result;
