@@ -243,7 +243,7 @@ public class Main {
                 case 5:
                     searchByVendor();//type in vendor
                     break;
-                case 0: goToLedger();
+                case 0:
                     return;
                 default:
                     System.out.println("I'm not sure what to do with that...");
