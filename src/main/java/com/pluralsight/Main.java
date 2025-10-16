@@ -13,7 +13,7 @@ public class Main {
 
     public static ArrayList<Transactions> transactionHistory = getTransactionFromFile();
 
-    //Main menu and choices
+    //━━━━━━━━━━━━━━━━━━━━⊱⋆Main Menu and Choices⋆⊰━━━━━━━━━━━━━━━━━━━━
     public static void main(String[] args) {
         System.out.println(
                 "╭──────────────────────.★..───╮\n" +
@@ -55,7 +55,6 @@ public class Main {
             }
         }
     }
-
     private static void addDeposit() {
         String description = ConsoleHelper.promptForString
         ("'Ah, adding to your treasures, are we?'\n" +
@@ -92,7 +91,7 @@ public class Main {
         saveTransactionFromUser(description, vendor, amount);
     }
 
-    //Methods for reading and writing info to transactions.csv
+    //━━━━━━━━━━━━━━━━━━━━⊱⋆Methods for Reading/Writing Info to File⋆⊰━━━━━━━━━━━━━━━━━━━━
     private static void saveTransactionFromUser(String description, String vendor, Double amount){
         try {
             FileWriter fileWriter = new FileWriter("transactions.csv",true);
@@ -140,7 +139,7 @@ public class Main {
         return transactionHistory;
     }
 
-    //Ledger menu and choices
+    //━━━━━━━━━━━━━━━━━━━━⊱⋆Ledger Menu and Choices⋆⊰━━━━━━━━━━━━━━━━━━━━
     public static void goToLedger() {
         String ledgerMenu =
                 "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n" +
@@ -179,7 +178,6 @@ public class Main {
             }
         }
     }
-
     private static void viewAllLedger(){
         for(Transactions t : transactionHistory){
             System.out.println(t);
@@ -210,7 +208,7 @@ public class Main {
         "'Here are all of the coins you've sent in generosity!'");
     }
 
-    //Reports menu and choices
+    //━━━━━━━━━━━━━━━━━━━━⊱⋆Reports Menu and Choices⋆⊰━━━━━━━━━━━━━━━━━━━━
     public static void viewReports(){
         String ledgerMenu =
                 "━━━━━━━━━━━━━━━━━━━━⊱⋆⊰━━━━━━━━━━━━━━━━━━━━\n" +
@@ -253,11 +251,10 @@ public class Main {
             }
         }
     }
-
     private static void viewMonthToDate(){
 
         LocalDate today = LocalDate.now();
-        for ( Transactions t: transactionHistory) {
+        for (Transactions t: transactionHistory) {
             if (t.getDate().getYear() == today.getYear() &&  // Check if the transaction happened in the current year
                     t.getDate().getMonth() == today.getMonth()) {
                 System.out.println(t);    // Print the transaction details if it matches the current year
@@ -270,7 +267,7 @@ public class Main {
 
         LocalDate today =LocalDate.now();
         LocalDate lastMonth = today.minusMonths(1);
-        for ( Transactions t : transactionHistory){
+        for (Transactions t : transactionHistory){
             if (t.getDate().getYear() == today.getYear() &&  // Check if the transaction happened in the current year
                     t.getDate().getMonth() == today.getMonth()) {
                 System.out.println(t);    // Print the transaction details if it matches the current year
@@ -283,7 +280,7 @@ public class Main {
 
         int currentYear = LocalDate.now().getYear();
         for (Transactions t : transactionHistory){
-            if(t.getDate().getYear()== currentYear) {
+            if(t.getDate().getYear() == currentYear) {
                 System.out.println(t);
             }
         }
@@ -294,7 +291,7 @@ public class Main {
 
         int lastYear = LocalDate.now().getYear() -1;
         for (Transactions t : transactionHistory){
-            if(t.getDate().getYear()== lastYear) {
+            if(t.getDate().getYear() == lastYear) {
                 System.out.println(t);
             }
         }
@@ -307,7 +304,7 @@ public class Main {
         String vendor = ConsoleHelper.promptForString("'Whose trades shall I reveal today traveler?'\n" + "You");
 
         boolean isfind = false;
-        for (Transactions t: transactionHistory) {
+        for (Transactions t : transactionHistory) {
             if(t.getVendor().equalsIgnoreCase(vendor)) {
                 System.out.println(t);
                 isfind = true;
