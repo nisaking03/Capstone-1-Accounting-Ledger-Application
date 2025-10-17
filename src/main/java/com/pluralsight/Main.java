@@ -266,11 +266,11 @@ public class Main {
     private static void viewPreviousMonth(){
 
         LocalDate today =LocalDate.now();
-        LocalDate lastMonth = today.minusMonths(1);
+        LocalDate lastMonth = today.minusMonths(-1);
         for (Transactions t : transactionHistory){
-            if (t.getDate().getYear() == today.getYear() &&  // Check if the transaction happened in the current year
-                    t.getDate().getMonth() == today.getMonth()) {
-                System.out.println(t);    // Print the transaction details if it matches the current year
+            if (t.getDate().getYear() == lastMonth.getYear() &&
+                    t.getDate().getMonth() ==  lastMonth.getMonth()) {
+                System.out.println(t);
             }
         }
         System.out.println();
