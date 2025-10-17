@@ -44,6 +44,12 @@ Follow the on-screen prompts to:
 <img width="800" height="470" alt="Screenshot SetUp1" src="https://github.com/user-attachments/assets/3db2e629-fdcf-473d-9a23-1c487a25fa2e" />
 <img width="800" height="283" alt="Screenshot SetUp2" src="https://github.com/user-attachments/assets/6b841081-6d58-46d1-be1f-aaefa3f221fa" />
 
+(Created a transaction class)
+<img width="1700" height="946" alt="Screenshot 2025-10-17 020647" src="https://github.com/user-attachments/assets/cd3c7ab9-50dd-476c-81b4-17029d0a7930" />
+
+(Created a class to hold prompts and make main look a bit cleaner)
+<img width="941" height="685" alt="Screenshot 2025-10-17 020821" src="https://github.com/user-attachments/assets/096a24c5-379d-4984-a81e-46726df2c9b3" />
+
 (Finished with making menu's and options, now to make them functional and save data into files)
 <img width="750" height="470" alt="Screenshot 2025-10-11 135715" src="https://github.com/user-attachments/assets/73d43219-eb5e-4aba-b344-352026577ef5" />
 
@@ -52,14 +58,14 @@ Follow the on-screen prompts to:
 
 <img width="1024" height="722" alt="Screenshot 2025-10-17 015741" src="https://github.com/user-attachments/assets/1412cd7a-d587-439c-9b0f-e506b158fe40" />
 
-### Completed
+## Completed
 - Basic menu structure and navigation
 - Fantasy-themed
 - Menu customization and choice prompts
 - File-based data storage implementation
 - Added reporting
 
-### What I would add
+## What I would add
 - Advanced reporting features
 - Implement data validation
 = Financial calculations for current checking account
