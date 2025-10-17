@@ -72,5 +72,5 @@ Follow the on-screen prompts to:
 
 ## Acknowledgments
 
-- I had lot's of help and guidance from my teacher and classmates during this project and I owe my completion to them!
+- I had lot's of help and guidance from my teacher, Matt Christenson, and classmates during this project and I owe my completion to them!
 - Year Up United
