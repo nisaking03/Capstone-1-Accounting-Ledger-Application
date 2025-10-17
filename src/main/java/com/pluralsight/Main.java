@@ -266,7 +266,7 @@ public class Main {
     private static void viewPreviousMonth(){
 
         LocalDate today =LocalDate.now();
-        LocalDate lastMonth = today.minusMonths(-1);
+        LocalDate lastMonth = today.minusMonths(1);
         for (Transactions t : transactionHistory){
             if (t.getDate().getYear() == lastMonth.getYear() &&
                     t.getDate().getMonth() ==  lastMonth.getMonth()) {
