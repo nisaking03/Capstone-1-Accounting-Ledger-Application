@@ -17,11 +17,6 @@ This is a capstone project. Feedback and suggestions are welcome! FantasyLedger 
 
 ## Screenshots
 
-
-
-
-
-
 ### Main Menus and Navigation
 ![Main Menu]
 
@@ -36,11 +31,11 @@ This is a capstone project. Feedback and suggestions are welcome! FantasyLedger 
 <img width="650" height="287" alt="Screenshot 2025-10-15 130600" src="https://github.com/user-attachments/assets/4d5e394b-20d5-42b5-a6e7-297e785aa574" />
 
 Follow the on-screen prompts to:
-1. Set up your initial profile
-2. Add income sources
+1. Switch through menus
+2. Add deposits and payments
 3. Track expenses
-4. Create and monitor budgets
-5. View financial summaries
+4. View financial summaries
+5. Search by dates or vendor
 
 ### Setup Process
 ![Setup Screen]
