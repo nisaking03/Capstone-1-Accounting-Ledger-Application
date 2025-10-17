@@ -66,7 +66,7 @@ Follow the on-screen prompts to:
 ## What I would add
 - Advanced reporting features
 - Implement data validation
-= Financial calculations for current checking account
+- Financial calculations for current checking account
 
 ## Acknowledgments
 
