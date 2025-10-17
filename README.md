@@ -53,9 +53,7 @@ Follow the on-screen prompts to:
 (Finished with making menu's and options, now to make them functional and save data into files)
 <img width="750" height="470" alt="Screenshot 2025-10-11 135715" src="https://github.com/user-attachments/assets/73d43219-eb5e-4aba-b344-352026577ef5" />
 
-### Expense Tracking
-![Expense Files]
-
+(Created transaction file to save data from user input, also added sample data)
 <img width="1024" height="722" alt="Screenshot 2025-10-17 015741" src="https://github.com/user-attachments/assets/1412cd7a-d587-439c-9b0f-e506b158fe40" />
 
 ## Completed
